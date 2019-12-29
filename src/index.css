@@ -1,0 +1,1012 @@
+@keyframes loginFormSlideDown {
+  from {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes homeOpen {
+  from {
+    opacity: 0.1;
+    top: -100px;
+    /* height: 0;
+    width: 0; */
+  }
+  to {
+    opacity: 1;
+    top: 40px; /* height: 60%;
+    width: 80%; */
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+/* ======================================== */
+/* GLOBAL STYLES */
+/* ======================================== */
+html,
+body,
+#root,
+.App,
+.dashboard {
+  width: 100%;
+  height: 100%;
+}
+
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+ul {
+  list-style-type: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+/* ======================================== */
+/* HEADER STYLES */
+/* ======================================== */
+header {
+  max-width: 100%;
+  min-height: 50px;
+  max-height: 100px;
+  padding: 5px;
+}
+
+nav {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+nav li {
+  /* padding: 2px 5px; */
+  border-radius: 5px;
+}
+
+nav button {
+  background-color: rgb(235, 235, 235);
+  border-radius: 10px;
+}
+
+header a {
+  max-height: 100%;
+}
+
+header img {
+  max-width: 80%;
+  max-height: 50px;
+}
+
+header li {
+  font-size: 12px;
+}
+
+/* ======================================== */
+/* LANDING STYLES */
+/* ======================================== */
+.landing {
+  min-height: 100vh;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* background-image: url('./images/rootBg.jpeg'); */
+  background-size: 'cover';
+  background-position: center;
+}
+
+.landing img {
+  max-width: 80%;
+  opacity: 0.9;
+  margin-top: 20px;
+}
+
+.loginReg {
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loginReg ul {
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+  margin: 0;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.loginReg li {
+  border: 0.5px solid white;
+  padding: 2px 5px;
+  border-radius: 5px;
+  margin: 0 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.loginReg li:hover {
+  background-color: white;
+  transform: scale(1.05);
+}
+
+.loginReg li > a:hover {
+  color: black;
+}
+
+.loginReg li > a {
+  color: white;
+}
+
+.landingForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 50%;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  animation: loginFormSlideDown 1s;
+  overflow: hidden;
+}
+
+.landingForm label {
+  color: white;
+}
+
+.landingForm input {
+  border-radius: 5px;
+  width: 100%;
+  padding: 5px;
+  border: 1px solid white;
+  margin: 5px;
+}
+
+.logRegBtn {
+  background-color: #3174ad;
+  color: white;
+  font-weight: 600;
+  margin: 10px;
+  padding: 5px;
+  width: 100px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 1px white;
+}
+
+.logRegBtn:hover {
+  color: #3174ad;
+  background-color: white;
+}
+
+.errorMsg {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 2px 10px;
+  border-radius: 10px;
+}
+
+footer {
+  /* height: 20%; */
+  color: white;
+}
+
+footer ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  justify-content: space-evenly;
+}
+
+footer li:hover {
+  transform: scale(1.2);
+  transition: transform 0.25s ease-in-out;
+}
+
+footer p {
+  margin: 1px;
+  font-size: 12px;
+}
+
+/* ======================================== */
+/* HOME STYLES */
+/* ======================================== */
+
+/* ======================================== */
+/* TILEBOARD STYLES */
+/* ======================================== */
+.home {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  /* background-color: black; */
+  overflow: hidden;
+  /* animation-name: homeOpen;
+  /* animation-delay: 2s; */
+  /* animation-duration: 3s;  */
+}
+
+.home button {
+  box-shadow: 0 1px 1px grey;
+  font-weight: 600;
+}
+
+.home > div {
+  overflow: hidden;
+}
+
+.navList a {
+  color: white;
+  text-shadow: 0 1px 1px #000000;
+  font-weight: 500;
+  padding: 0 2px;
+  text-align: center;
+}
+
+.selectedClass {
+  background-color: white;
+  color: black !important;
+  border-radius: 10px;
+}
+
+.navList {
+  padding: 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.board {
+  width: 100%;
+  /* min-height: 100vh; */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.tile {
+  min-height: 300px;
+  max-height: 400px;
+  width: 90%;
+  /* background-color: #f0eeee; */
+  display: flex;
+  margin: 5px;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 1px 1px 1px grey;
+  background-color: rgb(238, 238, 238);
+  flex-direction: column;
+  color: black;
+  background-color: #fefefe;
+  opacity: 0.9;
+  overflow: hidden;
+}
+
+.tile h3 {
+  margin: 5px;
+}
+
+/* ======================================== */
+/* BOARD1 STYLES */
+/* ======================================== */
+/* ======================================== */
+/* NEWS STYLES */
+/* ======================================== */
+
+.newsList {
+  padding: 0;
+  list-style-type: none;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  scroll-behavior: smooth;
+  align-items: center;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.newsList li {
+  padding: 8px;
+  margin: 0 5px 5px 5px;
+  width: 95%;
+  border-radius: 5px;
+  background-color: rgb(213, 222, 230);
+}
+
+.newsList li:hover {
+  background-color: rgb(140, 184, 222);
+  transform: scale(1.05);
+  transition: transform 0.2s;
+}
+
+.newsList a,
+.eventList a {
+  color: black;
+}
+
+.newsSearch {
+  width: 100%;
+  min-height: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+#newsBar {
+  height: 80%;
+  border-radius: 5px;
+  border: 2px solid rgb(208, 208, 208);
+  width: 200px;
+  margin: 0 10px;
+}
+
+.newsSearch button {
+  box-shadow: none;
+  background-color: #3174ad;
+  color: white;
+  font-weight: 600;
+  border-radius: 5px;
+}
+
+.newsSearch button:hover {
+  color: #3174ad;
+  background-color: white;
+}
+
+/* ======================================== */
+/* WEATHER STYLES */
+/* ======================================== */
+
+.weatherTile h3 {
+  margin-bottom: 0;
+}
+
+.weatherIcon {
+  min-width: 120px;
+}
+
+.weatherList {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 40%;
+  justify-content: space-evenly;
+  margin: 0;
+}
+
+.weatherList li {
+  padding: 10px 0;
+}
+
+/* ======================================== */
+/* CALENDAR STYLES */
+/* ======================================== */
+
+.calendarTile {
+  padding: 5px;
+}
+
+.calendarHeader {
+  width: 100%;
+  display: flex;
+  min-height: 25px;
+
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 5px;
+}
+
+.calendarBtn {
+  width: 30%;
+  background-color: #d7d7d7;
+  border-radius: 5px;
+  border: 1px solid white;
+  padding: 2px;
+}
+
+.calendarBtn:active {
+  background-color: rgb(113, 165, 254);
+  transform: scale(1.05);
+  transition: transform 0.1s;
+}
+
+.ReactModal__Content {
+  opacity: 0.9;
+  height: 60%;
+  border-radius: 10px !important;
+  background-color: #e4e4e4 !important;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation: homeOpen 0.7s;
+}
+
+.closeBtn {
+  height: 30px;
+  position: absolute;
+  right: 3px;
+  top: 3px;
+  border-radius: 10px;
+  background-color: red;
+  opacity: 0.5;
+  color: white;
+}
+
+.modalForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.modalForm label {
+  display: flex;
+  width: 80%;
+  justify-content: space-evenly;
+}
+
+.modalForm input,
+.modalForm textarea {
+  width: 70%;
+  border-radius: 5px;
+  padding: 5px;
+  border: 1px solid grey;
+}
+
+.modalText {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  max-height: 40%;
+  align-items: center;
+}
+
+.saveBtn {
+  background-color: #3174ad;
+  color: white;
+  max-width: 300px;
+  width: 50%;
+  border-radius: 5px;
+}
+
+.saveBtn:hover {
+  background-color: #ffffff;
+  color: #3174ad;
+}
+
+.modalText h2,
+.modalText p {
+  margin-bottom: 0;
+}
+
+.modalDelete {
+  background-color: rgb(252, 109, 109);
+  border-radius: 5px;
+  /* border: 1px solid white; */
+  box-shadow: 0 0 1px grey;
+  color: white;
+  font-weight: 600;
+}
+
+.modalDelete:hover,
+.closeBtn:hover {
+  background-color: white;
+  color: red;
+}
+/* ======================================== */
+/* BOARD2 STYLES */
+/* ======================================== */
+/* ======================================== */
+/* EVENTS STYLES */
+/* ======================================== */
+.eventType {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0;
+  margin: 0;
+  min-height: 30px;
+}
+
+.eventType li {
+  width: 50%;
+}
+
+.eventType button {
+  background-color: #3174ad;
+  color: white;
+  width: 60%;
+  min-width: 50px;
+  padding: 0 10px 3px 10px;
+  border-radius: 10px;
+  /* border: 1px solid grey; */
+}
+
+.eventType button:hover {
+  cursor: pointer;
+  color: #3174ad;
+  background-color: white;
+}
+
+.eventTile,
+.restoTile {
+  max-height: 550px;
+}
+
+.eventList,
+.restoList {
+  list-style-type: none;
+  overflow: scroll;
+  padding: 0;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  scroll-behavior: smooth;
+  border-radius: 5px;
+}
+
+.eventList a {
+  min-width: 100%;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.eventList li {
+  padding: 0 3px;
+  margin: 5px 0;
+  width: 100%;
+  /* height: 100%; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 100px;
+  font-size: 12px;
+  justify-content: space-between;
+  border-radius: 5px;
+}
+
+.eventList li {
+  background-color: rgb(213, 222, 230);
+}
+
+.eventList a:hover {
+  color: rgb(255, 255, 255);
+  transform: scale(1.1);
+  transition: transform 0.25s;
+  text-shadow: 0 1px 1px grey;
+}
+
+.eventList button {
+  background-color: #3174ad;
+  border-radius: 10px;
+  color: white;
+  margin: 5px 0;
+}
+
+.eventList button:hover {
+  transform: scale(1.05);
+  transition: transform 0.15s;
+  color: #3174ad;
+  background-color: white;
+}
+
+.eventText {
+  /* min-height: 100%; */
+  width: 65%;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.eventText h4,
+.restoList h4 {
+  margin: 0;
+}
+
+.eventList img {
+  width: 100%;
+  max-width: 134px;
+  height: 100%;
+  border-radius: 5px;
+  float: left;
+  margin: auto 0;
+}
+/* =============================================== */
+/* RESTAURANTS STYLES */
+/* =============================================== */
+
+.restoList li {
+  padding: 5px 10px;
+  margin: 5px 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 125px;
+  font-size: 12px;
+  justify-content: center;
+  border-radius: 5px;
+  background-color: rgb(213, 222, 230);
+}
+
+.restoList li > div {
+  width: 100%;
+}
+
+.menuLink {
+  width: 100%;
+  border-radius: 10px;
+  border: 0.5px solid grey;
+  background-color: #3174ad;
+  color: white;
+}
+
+.menuLink:hover,
+.menuLink a:hover {
+  background-color: white;
+  color: #3174ad;
+}
+
+.restoList a {
+  width: 40%;
+  color: white;
+  font-weight: 600;
+}
+
+.restoList h4 {
+  width: 100%;
+}
+
+.menuLink p {
+  margin: 0;
+}
+
+/* =============================================== */
+/* BOARD3 STYLES */
+/* =============================================== */
+/* =============================================== */
+/* MAP STYLES */
+/* =============================================== */
+.mapBoard {
+  display: flex;
+  justify-content: center;
+}
+
+.mapLegend {
+  width: 100%;
+  background-color: #fefefe;
+  /* opacity: 0.9; */
+  box-shadow: 0 1px 1px 1px grey;
+
+  display: flex;
+  border-radius: 5px;
+  padding: 2px 0;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 3px 0;
+}
+
+.mapLegend li {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+}
+
+#restoLegend {
+  background-color: red;
+  height: 90%;
+  padding: 5px;
+  margin: 1px;
+  border-radius: 3px;
+}
+#eventLegend {
+  background-color: #327bb6;
+  height: 90%;
+  padding: 5px;
+  margin: 1px;
+  border-radius: 3px;
+}
+
+.mapBoard > div {
+  width: 90%;
+  opacity: 0.9;
+
+  /* height: 80%; */
+  /* display: flex;
+  justify-content: center; */
+  margin: 0 auto;
+}
+.mapBoard button {
+  box-shadow: none;
+}
+
+.mapBoard button:hover {
+  cursor: auto;
+}
+
+.mapBoard > div > div > div {
+  height: 80vh !important;
+  border-radius: 5px;
+}
+
+.infoWindow a:hover {
+  text-decoration: underline;
+}
+
+.infoWindow h4,
+h5,
+h6 {
+  margin: 8px;
+}
+
+/* ================================== */
+/* SETTINGS STYLES */
+/* ================================== */
+
+.settings {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.settingsLinks {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 10px 0;
+}
+
+.settingsLinks button {
+  border-radius: 10px;
+}
+
+.settingsLinks button:active {
+  color: white;
+  background-color: #3174ad;
+}
+
+.settingsForm {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  justify-content: center;
+  /* background-color: #c4dcd3; */
+  text-align: left;
+  align-items: center;
+}
+
+.settingsForm label {
+  font-size: 12px;
+  margin: 3px;
+}
+
+.settingsForm input {
+  border-radius: 5px;
+  border: 1px solid rgb(213, 213, 213);
+  margin: 3px;
+}
+
+.userInfo label input:focus {
+  opacity: 1;
+  background-color: #ffffff;
+}
+
+.settingsDiv h4 {
+  margin-bottom: 5px;
+}
+
+.userInfo {
+  margin-bottom: 20px;
+}
+
+.prefDiv {
+  min-height: 200px;
+}
+
+.userPref {
+  margin: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.userPref input,
+.userPref select {
+  width: 50%;
+  max-width: 300px;
+  border-radius: 5px;
+  border: 1px solid rgb(213, 213, 213);
+  padding: 1.5px;
+  margin: 3px;
+}
+
+.userPref button {
+  margin: 0;
+  border-radius: 5px;
+}
+
+.listContainer {
+  width: 90%;
+  display: flex;
+  margin: 5px 0;
+  /* align-items: center; */
+  border-radius: 10px;
+  box-shadow: 0 1px 1px 1px grey;
+  background-color: rgb(238, 238, 238);
+  color: black;
+  justify-content: center;
+  background-color: #fefefe;
+  opacity: 0.9;
+}
+
+.preferenceList {
+  width: 50%;
+  padding: 0;
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.preferenceList h5 {
+  margin: 8px 0;
+}
+
+.preferenceList li {
+  background-color: rgb(220, 220, 220);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 300px;
+  margin: 3px;
+  border-radius: 10px;
+}
+
+.preferenceList button {
+  color: white;
+  background-color: red;
+  opacity: 0.5;
+  border-radius: 10px;
+}
+
+.prefName {
+  width: 80%;
+  padding: 5px 0 5px 20px;
+}
+
+/* ======= ======= ======= ======= ======= */
+/* MEDIA QUERIES */
+/* ======= ======= ======= ======= ======= */
+
+@media screen and (min-width: 500px) {
+  /* None necessary yet */
+}
+
+@media screen and (min-width: 768px) {
+  .eventType button {
+    width: 50%;
+  }
+
+  .eventList,
+  .restoList {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  .eventList li,
+  .restoList li {
+    width: 47%;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  /* None Needed */
+}
+
+@media screen and (min-width: 1100px) {
+  .eventList li,
+  .restoList li {
+    width: 31%;
+  }
+
+  .weatherTile {
+    width: 25%;
+    height: 500px;
+    max-height: 500px;
+    padding-top: 30px;
+  }
+
+  .weatherIcon {
+    min-width: 200px;
+  }
+
+  .calendarTile {
+    max-height: 500px;
+    width: 64%;
+  }
+
+  .news {
+    min-height: 600px;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .weatherTile {
+    width: 25%;
+    height: 550px;
+    max-height: 550px;
+  }
+
+  .weatherIcon {
+    min-width: 250px;
+  }
+
+  .calendarTile {
+    max-height: 550px;
+    height: 550px;
+    width: 64%;
+  }
+
+  .news {
+    min-height: 550px;
+  }
+
+  .eventTile,
+  .restoTile {
+    max-height: 600px;
+  }
+
+  .eventList li,
+  .restoList li {
+    width: 23%;
+  }
+}
