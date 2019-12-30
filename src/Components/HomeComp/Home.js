@@ -4,6 +4,7 @@ import SwipeableRoutes from 'react-swipeable-routes';
 import moment from 'moment';
 import keys from '../../config';
 import Header from '../Header/Header';
+import './Home.scss';
 
 class Home extends Component {
   constructor(props) {
@@ -23,8 +24,14 @@ class Home extends Component {
           <div className='services'>
             <h2>Services</h2>
             <ul>
-              <li>Kitchens</li>
-              <li>Bathrooms</li>
+              <li>
+                Kitchens
+                <div></div>
+              </li>
+              <li>
+                Bathrooms
+                <div></div>
+              </li>
             </ul>
             <button>Book Now</button>
           </div>

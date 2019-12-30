@@ -1,15 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Header.scss';
-import image from '../../images/losAltosLogo.jpg';
+import image from '../../images/homeImg-noalpha.png';
 
 function Header(props) {
   return (
     <header>
-      <img src={image}></img>
-
-      <h1>Los Altos Construction</h1>
-      <h4>Kitchen & Bath Remodeling</h4>
+      <img src={image} alt='Los Altos Construction Logo'></img>
       <nav>
         <li>Home</li>
         <li>About</li>
