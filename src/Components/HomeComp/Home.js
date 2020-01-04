@@ -4,6 +4,7 @@ import SwipeableRoutes from 'react-swipeable-routes';
 import moment from 'moment';
 import keys from '../../config';
 import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 import './Home.scss';
 
 class Home extends Component {
@@ -20,24 +21,46 @@ class Home extends Component {
     return (
       <div>
         <Header />
-        <div className='landing'>
+        <div className='landing top65'>
+          <h2>Los Altos Construction</h2>
+          <h4>Kitchen &amp; Bathroom Remodeling</h4>
           <div className='services'>
             <h2>Services</h2>
             <ul>
               <li>
-                Kitchens
-                <div></div>
+                <h3>Kitchens</h3>
+                <ul className='serviceList'>
+                  <li>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,.
+                  </li>
+                  <li>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,.
+                  </li>
+                  <li>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,.
+                  </li>
+                </ul>
               </li>
               <li>
-                Bathrooms
-                <div></div>
+                <h3>Bathrooms</h3>
+                <ul className='serviceList'>
+                  <li>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,.
+                  </li>
+                  <li>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,.
+                  </li>
+                  <li>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,.
+                  </li>
+                </ul>
               </li>
             </ul>
             <button>Book Now</button>
           </div>
         </div>
 
-        <div className='about'>
+        <div className='about top65'>
           <h2>About Us</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -50,32 +73,35 @@ class Home extends Component {
           </p>
         </div>
 
-        <div className='about'>
+        <div className='contactSection top65'>
           <h2>Contact Us</h2>
           <form>
             <label>
               Name<br></br>
-              <input type='text'></input>
+              <input type='text' placeholder='John Smith'></input>
             </label>
             <br></br>
             <label>
-              {' '}
               Email<br></br>
-              <input type='text'></input>
+              <input type='text' placeholder='johnsmith@apple.com'></input>
             </label>
             <br></br>
 
             <label>
-              {' '}
               Phone Number<br></br>
-              <input type='text'></input>
+              <input type='text' placeholder='000-000-0000'></input>
+            </label>
+            <br></br>
+            <label>
+              Message<br></br>
+              <textarea></textarea>
             </label>
             <br></br>
 
-            <button type='submit'>Submit</button>
+            <button type='submit'>Send</button>
           </form>
         </div>
-        <div className='gallery'>
+        <div className='gallery top65'>
           <h2>Gallery</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -87,6 +113,7 @@ class Home extends Component {
             culpa qui officia deserunt mollit anim id est laborum.
           </p>
         </div>
+        <Footer />
       </div>
     );
   }
