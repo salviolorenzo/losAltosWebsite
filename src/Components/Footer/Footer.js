@@ -9,13 +9,13 @@ function Footer(props) {
       <ul>
         <li>
           <a href='https://www.instagram.com/losaltosconstruction/'>
-            <i class='fab fa-instagram'></i>
+            <i className='fab fa-instagram'></i>
             Instagram
           </a>
         </li>
         <li>
           <a href='https://www.facebook.com/Los-Altos-Construction-Inc-160960637307105/'>
-            <i class='fab fa-facebook-square'></i>
+            <i className='fab fa-facebook-square'></i>
             Facebook
           </a>
         </li>
