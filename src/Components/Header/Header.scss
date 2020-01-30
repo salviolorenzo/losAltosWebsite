@@ -65,7 +65,7 @@ header {
   z-index: 5;
 
   img {
-    padding: 0 20px;
+    margin: 0 20px;
   }
 }
 
@@ -106,6 +106,7 @@ nav li {
 
 .mainHeader {
   height: 100px;
+  width: 100%;
   background-color: #124068;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -117,6 +118,12 @@ nav li {
   -ms-flex-align: center;
   align-items: center;
 }
+
+#logo {
+  min-width: 30%;
+  min-height: 50px;
+}
+
 nav button {
   background-color: rgb(235, 235, 235);
   border-radius: 10px;
