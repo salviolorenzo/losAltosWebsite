@@ -1,9 +1,32 @@
+@-webkit-keyframes loginFormSlideDown {
+  from {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes loginFormSlideDown {
   from {
     opacity: 0.1;
   }
   to {
     opacity: 1;
+  }
+}
+
+@-webkit-keyframes homeOpen {
+  from {
+    opacity: 0.1;
+    top: -100px;
+    /* height: 0;
+    width: 0; */
+  }
+  to {
+    opacity: 1;
+    top: 40px; /* height: 60%;
+    width: 80%; */
   }
 }
 
@@ -47,11 +70,13 @@ body,
 }
 
 html {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 *,
 *:before,
 *:after {
+  -webkit-box-sizing: inherit;
   box-sizing: inherit;
 }
 

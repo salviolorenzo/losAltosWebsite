@@ -1,3 +1,36 @@
+@-webkit-keyframes slideOpen {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0;
+  }
+}
+@keyframes slideOpen {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0;
+  }
+}
+@-webkit-keyframes slideClosed {
+  from {
+    left: 0;
+  }
+  to {
+    left: 100%;
+  }
+}
+@keyframes slideClosed {
+  from {
+    left: 0;
+  }
+  to {
+    left: 100%;
+  }
+}
+
 h1,
 h4 {
   margin: 0;
@@ -14,15 +47,26 @@ header img {
 header {
   width: 100%;
   height: 65px;
-  padding: 10px 5px;
+  padding: 10px 0;
   color: white;
   background-color: #124068;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
   position: fixed;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   z-index: 5;
+
+  img {
+    padding: 0 20px;
+  }
 }
 
 .titleCont {
@@ -33,11 +77,17 @@ nav {
   width: 80%;
   height: 100%;
   max-height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   list-style-type: none;
   padding: 10px 0;
   margin: 0;
+  -webkit-box-pack: space-evenly;
+  -ms-flex-pack: space-evenly;
   justify-content: space-evenly;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -54,9 +104,119 @@ nav li {
   }
 }
 
+.mainHeader {
+  height: 100px;
+  background-color: #124068;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
 nav button {
   background-color: rgb(235, 235, 235);
   border-radius: 10px;
+}
+.navLinksMenu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  background-color: grey;
+  top: 100px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: absolute;
+  overflow: hidden;
+
+  a {
+    font-size: 24px;
+    color: white;
+    padding: 10px;
+  }
+}
+
+.menuOpen {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 90vh;
+  left: 0;
+  -webkit-animation: slideOpen 0.5s;
+  animation: slideOpen 0.5s;
+
+  nav {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    div {
+      height: 25%;
+      width: 100%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+      &:hover {
+        font-weight: 800;
+        transform: scale(1.1);
+      }
+      &:active {
+        font-weight: 800;
+        transform: scale(1.1);
+      }
+
+      li {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        width: 100%;
+
+        font-size: 35px;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+.menuClosed {
+  position: absolute;
+  top: 100%;
+  left: 100%;
+  height: 100vh;
+  -webkit-animation: slideClosed 0.5s;
+  animation: slideClosed 0.5s;
 }
 
 header a {
@@ -64,11 +224,9 @@ header a {
 }
 
 header img {
-  // max-width: 80px;
   max-width: 20%;
   max-height: 50px;
   border-radius: 5px;
-  // position: absolute;
 }
 
 @media screen and (min-width: 550px) {

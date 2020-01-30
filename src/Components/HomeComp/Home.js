@@ -1,4 +1,4 @@
-import React, { Component, Suspense } from 'react';
+import React, { Component, useRef, useEffect } from 'react';
 import { Route, NavLink, Switch } from 'react-router-dom';
 import SwipeableRoutes from 'react-swipeable-routes';
 import moment from 'moment';
@@ -31,6 +31,8 @@ function setImg(url) {
   return style;
 }
 
+const scrollToRef = ref => window.scrollTo(0, ref.current.offsetTop);
+
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -51,17 +53,76 @@ class Home extends Component {
         kitchen6,
         br6,
         kitchen7
-      ]
+      ],
+      isMobile: false,
+      menuIsOpen: false,
+      myRef: '',
+      selectedSection: {}
     };
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    this.setState({
+      menuIsOpen: false
+    });
+    this.resize();
+    window.addEventListener('resize', this.resize.bind(this));
+  }
+
+  scrollToRef(ref) {
+    window.scrollTo(0, ref.current.offsetTop);
+  }
+
+  useMountEffect(fun) {
+    useEffect(fun, []);
+  }
+
+  myRef() {
+    this.setState({
+      myRef: useRef(null)
+    });
+  }
+
+  executeScroll() {
+    scrollToRef(this.state.myRef);
+  }
+
+  resize() {
+    if (window.innerWidth >= 450) {
+      this.setState({
+        isMobile: false,
+        menuIsOpen: false
+      });
+    } else {
+      this.setState({
+        isMobile: true
+      });
+    }
+  }
+
+  menuClick() {
+    this.setState({
+      menuIsOpen: false
+    });
+  }
+
+  handleMenuClick() {
+    let isOpen = this.state.menuIsOpen;
+    this.setState({
+      menuIsOpen: !isOpen
+    });
+  }
 
   render() {
     return (
       <div>
-        <Header />
-        <div className='landing top65'>
+        <Header
+          isMobile={this.state.isMobile}
+          menuIsOpen={this.state.menuIsOpen}
+          handleMenuClick={this.handleMenuClick.bind(this)}
+          menuClick={this.menuClick.bind(this)}
+        />
+        <div className='landing top65' id='home'>
           <h2>Los Altos Construction</h2>
           <h4>Kitchen &amp; Bathroom Remodeling</h4>
           <div className='services'>
@@ -100,7 +161,7 @@ class Home extends Component {
           </div>
         </div>
 
-        <div className='about top65'>
+        <div className='about top65' id='about'>
           <h2>About Us</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -113,7 +174,7 @@ class Home extends Component {
           </p>
         </div>
 
-        <div className='contactSection top65'>
+        <div className='contactSection top65' id='contact'>
           <h2>Contact Us</h2>
           <form>
             <label>
@@ -141,7 +202,7 @@ class Home extends Component {
             <button type='submit'>Send</button>
           </form>
         </div>
-        <div className='gallery top65'>
+        <div className='gallery top65' id='gallery'>
           <h2>Gallery</h2>
           {this.state.imgArray.map((item, index) => {
             return (
