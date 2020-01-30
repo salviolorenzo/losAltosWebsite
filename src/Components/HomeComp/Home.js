@@ -79,6 +79,8 @@ class Home extends Component {
         message: ''
       }
     });
+
+    this.splitString();
     this.resize();
     window.addEventListener('resize', this.resize.bind(this));
     scrollToComponent(this.Blue, {
@@ -200,6 +202,54 @@ class Home extends Component {
     });
   }
 
+  splitString() {
+    let strings = [
+      'Los Altos Construction',
+      'Kitchen & Bathroom Remodeling',
+      'Services',
+      'Kitchen & Bath measure and planning',
+      'Complete kitchen removal and replace as per design',
+      'Supply full range of kitchen and bath products',
+      'Bathrooms',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit,.',
+      'About Us',
+      'Our computer design allows you to view your plan before your purchase',
+      'Both an in-home measure and site verification by Los Altos Construction ensures your project can be completed as designed.',
+      'A line item bid shows you the install cost of each item.',
+      'Reliable, on time, and courteous installers working for you.',
+      'We provide a cabinet-only install or a full remodel which includes: demolition, electrical, plumbing, wall work, cabinet and appliance install.',
+      'Quality work from licensed and insured professionals who will get the job done right the first time.',
+      'Installation labor has a one year warranty, giving you piece of mind.',
+      'All phases of the project are professionally managed and scheduled in advance.',
+      'Our installers have the capability to add elegance to your home with just a touch of craftsmanship from our skilled employees.',
+      'We are proud of our reputation, and will work to earn your trust.',
+      'All of our employees have received extensive background checks, ensuring a safe environment in your home.',
+      'All of our employees have been with Los Altos Construction for a minimum of 10 years!',
+      'Contact Us',
+      'Name',
+      'Email',
+      'Phone Number',
+      'Message',
+      'Los Altos Construction',
+      '2863 Walnut Ave',
+      'Signal Hill, CA',
+      '90755',
+      '562-997-1220',
+      '562',
+      '997',
+      '1220',
+      'Gallery'
+    ];
+
+    let string_of_strings = strings.join(', ');
+
+    let allStr = string_of_strings;
+
+    console.log(string_of_strings);
+
+    strings.forEach(str => {});
+  }
+
   render() {
     return (
       <div>
@@ -248,7 +298,17 @@ class Home extends Component {
                 </ul>
               </li> */}
             </ul>
-            <button>Book Now</button>
+            <button
+              onClick={() => {
+                scrollToComponent(this.Contact, {
+                  offset: -65,
+                  align: 'top',
+                  duration: 1500
+                });
+              }}
+            >
+              Book Now
+            </button>
           </div>
         </div>
 
