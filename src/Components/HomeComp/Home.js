@@ -80,7 +80,6 @@ class Home extends Component {
       }
     });
 
-    this.splitString();
     this.resize();
     window.addEventListener('resize', this.resize.bind(this));
     scrollToComponent(this.Blue, {
@@ -140,7 +139,6 @@ class Home extends Component {
     e.preventDefault();
     const templateId = 'losAltosEmailTemplate';
     let valid = this.validateEmail(this.state.form.email);
-    let form = this.state.form;
     if (valid) {
       emailjs
         .sendForm(
@@ -437,10 +435,27 @@ class Home extends Component {
             <button type='submit'>Send</button>
             <div className='address'>
               <h3>Los Altos Construction</h3>
-              <h3>2863 Walnut Ave</h3>
-              <h3>Signal Hill, CA</h3>
-              <h3>90755</h3>
-              <h3>(562) 997-1220</h3>
+              <div>
+                <a
+                  href='https://www.google.com/maps/place/Los+Altos+Construction/@33.809325,-118.1722029,15z/data=!4m5!3m4!1s0x0:0x646e99a284601f78!8m2!3d33.809325!4d-118.1722029'
+                  alt='Link to Google Maps.'
+                  rel='noopener noreferrer'
+                  target='_blank'
+                >
+                  <h3>
+                    <i className='fas fa-map-marker-alt'></i> 2863 Walnut Ave
+                  </h3>
+                  <h3>Signal Hill, CA</h3>
+                  <h3>90755</h3>
+                </a>
+              </div>
+              <h3 id='phone'>
+                <a href='tel:1-562-997-1220'>
+                  <div>
+                    <i className='fas fa-phone'></i> (562) 997-1220
+                  </div>
+                </a>
+              </h3>
             </div>
           </form>
         </div>
