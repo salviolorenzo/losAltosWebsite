@@ -1,5 +1,107 @@
+@-webkit-keyframes slideModalOpen {
+  from {
+    height: 0;
+  }
+  to {
+    height: 90vh;
+  }
+}
+@keyframes slideModalOpen {
+  from {
+    height: 0;
+  }
+  to {
+    height: 90vh;
+  }
+}
+@-webkit-keyframes slideModalClosed {
+  from {
+    height: 90vh;
+  }
+  to {
+    height: 0;
+  }
+}
+@keyframes slideModalClosed {
+  from {
+    height: 90vh;
+  }
+  to {
+    height: 0;
+  }
+}
+
 h2 {
   margin: 0;
+}
+
+.modalBg {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  align-items: center;
+  width: 100%;
+  height: 80%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+  display: flex;
+  // flex-wrap: wrap;
+  height: 80%;
+  width: 90%;
+  z-index: 11;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+
+  .arrows {
+    font-size: 24px;
+    color: black;
+    display: inherit;
+    justify-content: space-between;
+    width: 100%;
+    i {
+      padding: 20px 10px;
+    }
+  }
+}
+
+.exit {
+  position: absolute;
+  top: 65px;
+  font-size: 24px;
+  padding-right: 5px;
+  color: white;
+  vertical-align: top;
+  display: flex;
+  justify-content: flex-end;
+  vertical-align: top;
+  width: 100%;
+  height: 100px;
+
+  &:hover {
+    color: red;
+  }
+}
+
+.modalOpen {
+  z-index: 10;
+  width: 100%;
+  // top: auto;
+  height: 90vh;
+  -webkit-animation: slideModalOpen 0.5s;
+  animation: slideModalOpen 0.5s;
+}
+
+.modalClosed {
+  z-index: -10;
+  top: 50%;
+  height: 0;
+  width: 0;
+  -webkit-animation: slideModalClosed 0.5s;
+  animation: slideModalClosed 0.5s;
 }
 
 .top65 {

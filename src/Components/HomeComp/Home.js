@@ -27,9 +27,11 @@ function setImg(url) {
     backgroundImage: `url(${url})`,
     backgroundSize: `contain`,
     backgroundPosition: `center`,
-    backgroundRepeat: 'no-repeat'
+    backgroundRepeat: 'no-repeat',
+    backgroundColor: 'rgba(255, 255, 255, 0.8)'
     // backgroundAttachment: `fixed`
   };
+  console.log(style);
   return style;
 }
 
@@ -39,8 +41,6 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedImage: {},
-      selectedIdx: {},
       imgArray: [
         kitchen1,
         br1,
@@ -65,7 +65,10 @@ class Home extends Component {
         email: '',
         phone: '',
         message: ''
-      }
+      },
+      modalOpen: false,
+      selectedIdx: {},
+      selectedImage: {}
     };
   }
 
@@ -200,53 +203,91 @@ class Home extends Component {
     });
   }
 
-  splitString() {
-    let strings = [
-      'Los Altos Construction',
-      'Kitchen & Bathroom Remodeling',
-      'Services',
-      'Kitchen & Bath measure and planning',
-      'Complete kitchen removal and replace as per design',
-      'Supply full range of kitchen and bath products',
-      'Bathrooms',
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit,.',
-      'About Us',
-      'Our computer design allows you to view your plan before your purchase',
-      'Both an in-home measure and site verification by Los Altos Construction ensures your project can be completed as designed.',
-      'A line item bid shows you the install cost of each item.',
-      'Reliable, on time, and courteous installers working for you.',
-      'We provide a cabinet-only install or a full remodel which includes: demolition, electrical, plumbing, wall work, cabinet and appliance install.',
-      'Quality work from licensed and insured professionals who will get the job done right the first time.',
-      'Installation labor has a one year warranty, giving you piece of mind.',
-      'All phases of the project are professionally managed and scheduled in advance.',
-      'Our installers have the capability to add elegance to your home with just a touch of craftsmanship from our skilled employees.',
-      'We are proud of our reputation, and will work to earn your trust.',
-      'All of our employees have received extensive background checks, ensuring a safe environment in your home.',
-      'All of our employees have been with Los Altos Construction for a minimum of 10 years!',
-      'Contact Us',
-      'Name',
-      'Email',
-      'Phone Number',
-      'Message',
-      'Los Altos Construction',
-      '2863 Walnut Ave',
-      'Signal Hill, CA',
-      '90755',
-      '562-997-1220',
-      '562',
-      '997',
-      '1220',
-      'Gallery'
-    ];
-
-    let string_of_strings = strings.join(', ');
-
-    let allStr = string_of_strings;
-
-    console.log(string_of_strings);
-
-    strings.forEach(str => {});
+  getModalClasses(modalOpen) {
+    return modalOpen ? 'modalBg modalOpen' : 'modalBg modalClosed';
   }
+
+  openModal(img, idx) {
+    console.log(img);
+
+    this.setState({
+      openModal: true,
+      selectedImg: img,
+      selectedIdx: idx
+    });
+  }
+
+  closeModal(e) {
+    console.log(e.target.name);
+
+    this.setState({
+      openModal: false
+    });
+  }
+
+  cycleImg(operator) {
+    let index = this.selectedIdx;
+    if (operator === 'sub') {
+      index--;
+    } else if (operator === 'add') {
+      index++;
+    }
+    let arr = this.state.imgArray;
+    let image = arr[index];
+    this.setState({
+      openModal: true,
+      selectedImg: image,
+      selectedIdx: index
+    });
+  }
+
+  // splitString() {
+  //   let strings = [
+  //     'Los Altos Construction',
+  //     'Kitchen & Bathroom Remodeling',
+  //     'Services',
+  //     'Kitchen & Bath measure and planning',
+  //     'Complete kitchen removal and replace as per design',
+  //     'Supply full range of kitchen and bath products',
+  //     'Bathrooms',
+  //     'Lorem ipsum dolor sit amet, consectetur adipiscing elit,.',
+  //     'About Us',
+  //     'Our computer design allows you to view your plan before your purchase',
+  //     'Both an in-home measure and site verification by Los Altos Construction ensures your project can be completed as designed.',
+  //     'A line item bid shows you the install cost of each item.',
+  //     'Reliable, on time, and courteous installers working for you.',
+  //     'We provide a cabinet-only install or a full remodel which includes: demolition, electrical, plumbing, wall work, cabinet and appliance install.',
+  //     'Quality work from licensed and insured professionals who will get the job done right the first time.',
+  //     'Installation labor has a one year warranty, giving you piece of mind.',
+  //     'All phases of the project are professionally managed and scheduled in advance.',
+  //     'Our installers have the capability to add elegance to your home with just a touch of craftsmanship from our skilled employees.',
+  //     'We are proud of our reputation, and will work to earn your trust.',
+  //     'All of our employees have received extensive background checks, ensuring a safe environment in your home.',
+  //     'All of our employees have been with Los Altos Construction for a minimum of 10 years!',
+  //     'Contact Us',
+  //     'Name',
+  //     'Email',
+  //     'Phone Number',
+  //     'Message',
+  //     'Los Altos Construction',
+  //     '2863 Walnut Ave',
+  //     'Signal Hill, CA',
+  //     '90755',
+  //     '562-997-1220',
+  //     '562',
+  //     '997',
+  //     '1220',
+  //     'Gallery'
+  //   ];
+
+  //   let string_of_strings = strings.join(', ');
+
+  //   let allStr = string_of_strings;
+
+  //   console.log(string_of_strings);
+
+  //   strings.forEach(str => {});
+  // }
 
   render() {
     return (
@@ -262,6 +303,7 @@ class Home extends Component {
           contact={this.Contact}
           gallery={this.Gallery}
         />
+
         <div
           className='landing top65'
           id='home'
@@ -269,6 +311,39 @@ class Home extends Component {
             this.Home = section;
           }}
         >
+          <div
+            name='background'
+            className={this.getModalClasses(this.state.openModal)}
+          >
+            <div
+              name='modal'
+              className='modal'
+              style={setImg(this.state.imgArray[this.state.selectedIdx])}
+            >
+              <div
+                className='exit'
+                onClick={e => {
+                  this.closeModal(e);
+                }}
+              >
+                <i className='far fa-times-circle '></i>
+              </div>
+              <div className='arrows'>
+                <i
+                  className='fas fa-arrow-left'
+                  onClick={e => {
+                    this.cycleImg('sub');
+                  }}
+                ></i>
+                <i
+                  className='fas fa-arrow-right'
+                  onClick={e => {
+                    this.cycleImg('add');
+                  }}
+                ></i>
+              </div>
+            </div>
+          </div>
           <h2>Los Altos Construction</h2>
           <h4>Kitchen &amp; Bathroom Remodeling</h4>
           <div className='services'>
@@ -470,6 +545,9 @@ class Home extends Component {
           {this.state.imgArray.map((item, index) => {
             return (
               <div
+                onClick={() => {
+                  this.openModal(item, index);
+                }}
                 className='galleryImg'
                 key={index}
                 style={setImg(item)}
