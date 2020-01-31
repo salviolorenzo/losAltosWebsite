@@ -236,20 +236,14 @@ header img {
   border-radius: 5px;
 }
 
-@media screen and (min-width: 550px) {
-  nav li {
-    font-size: 16px;
-  }
-}
-
 @media screen and (min-width: 400px) {
   nav li {
     font-size: 12px;
   }
 }
 
-@media screen and (min-width: 450px) {
+@media screen and (min-width: 650px) {
   nav li {
-    font-size: 14px;
+    font-size: 16px;
   }
 }

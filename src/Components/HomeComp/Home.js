@@ -22,21 +22,6 @@ import kitchen5 from '../../images/kitchen5.jpg';
 import kitchen6 from '../../images/kitchen6.jpg';
 import kitchen7 from '../../images/kitchen7.jpg';
 
-function setImg(url) {
-  const style = {
-    backgroundImage: `url(${url})`,
-    backgroundSize: `contain`,
-    backgroundPosition: `center`,
-    backgroundRepeat: 'no-repeat',
-    backgroundColor: 'rgba(255, 255, 255, 0.8)'
-    // backgroundAttachment: `fixed`
-  };
-  console.log(style);
-  return style;
-}
-
-const scrollToRef = ref => window.scrollTo(0, ref.current.offsetTop);
-
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -74,6 +59,7 @@ class Home extends Component {
 
   componentDidMount() {
     this.setState({
+      selectedIdx: 0,
       menuIsOpen: false,
       form: {
         name: '',
@@ -88,9 +74,23 @@ class Home extends Component {
     scrollToComponent(this.Blue, {
       offset: 0,
       align: 'middle',
-      duration: 500,
+      duration: 400,
       ease: 'inCirc'
     });
+  }
+
+  setImg(imgArray, index) {
+    let url = imgArray[index];
+    let style = {
+      backgroundImage: `url(${url})`,
+      backgroundSize: `contain`,
+      backgroundPosition: `center`,
+      backgroundRepeat: 'no-repeat',
+      backgroundColor: 'rgba(255, 255, 255, 0.8)',
+      padding: '10px 0'
+      // backgroundAttachment: `fixed`
+    };
+    return style;
   }
 
   scrollToRef(ref) {
@@ -108,7 +108,7 @@ class Home extends Component {
   }
 
   executeScroll() {
-    scrollToRef(this.state.myRef);
+    this.scrollToRef(this.state.myRef);
   }
 
   resize() {
@@ -227,18 +227,22 @@ class Home extends Component {
 
   cycleImg(operator) {
     let index = this.selectedIdx;
-    if (operator === 'sub') {
-      index--;
-    } else if (operator === 'add') {
-      index++;
-    }
     let arr = this.state.imgArray;
+    let count = arr.length - 1;
     let image = arr[index];
-    this.setState({
-      openModal: true,
-      selectedImg: image,
-      selectedIdx: index
-    });
+    console.log('count');
+    console.log(count);
+    console.log('arr');
+    console.log(arr);
+    console.log('index');
+    console.log(index);
+    console.log('image');
+    console.log(image);
+    // this.setState({
+    //   openModal: true,
+    //   selectedImg: image,
+    //   selectedIdx: index
+    // });
   }
 
   // splitString() {
@@ -318,7 +322,7 @@ class Home extends Component {
             <div
               name='modal'
               className='modal'
-              style={setImg(this.state.imgArray[this.state.selectedIdx])}
+              style={this.setImg(this.state.imgArray, this.state.selectedIdx)}
             >
               <div
                 className='exit'
@@ -376,7 +380,7 @@ class Home extends Component {
                 scrollToComponent(this.Contact, {
                   offset: -65,
                   align: 'top',
-                  duration: 1500
+                  duration: 1000
                 });
               }}
             >
@@ -550,7 +554,7 @@ class Home extends Component {
                 }}
                 className='galleryImg'
                 key={index}
-                style={setImg(item)}
+                style={this.setImg(this.state.imgArray, index)}
               ></div>
             );
           })}
