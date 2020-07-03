@@ -183,12 +183,12 @@ class Home extends Component {
 			.catch((err) => console.error('Oh well, you failed. Here some thoughts on the error that occured:', err));
 	}
 
-	validateEmail(mail) {
-		if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
-			return true;
-		}
-		return false;
-	}
+	// validateEmail(mail) {
+	// 	if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
+	// 		return true;
+	// 	}
+	// 	return false;
+	// }
 
 	handleInputChange(event) {
 		console.log();
