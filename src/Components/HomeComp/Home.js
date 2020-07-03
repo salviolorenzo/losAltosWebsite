@@ -1,13 +1,10 @@
 import React, { Component, useRef, useEffect } from 'react';
-import moment from 'moment';
 import emailjs from 'emailjs-com';
-import PhoneInput from 'react-phone-number-input';
 import InstagramEmbed from 'react-instagram-embed';
-import keys from '../../config';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
-import './Home.scss';
 import scrollToComponent from 'react-scroll-to-component';
+import './Home.scss';
 
 import br1 from '../../images/bathroom1.jpg';
 import br2 from '../../images/bathroom2.jpg';
